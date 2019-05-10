@@ -1,0 +1,85 @@
+/* h1 {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Montrerrat', sans-serif;
+    color: blue;
+    font-size: 90px
+} */
+
+    
+.jumbotron h1 {
+    color: white;
+    
+    /* font-family: 'Montrerrat', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 110px;
+    /* font-weight: bold; */
+    background-color: none;
+    letter-spacing: 2px;
+    text-shadow: 4px 4px 3px rgba(56, 23, 1, 0.493);
+}
+
+.jumbotron {
+    /* background-color: #0080c0; */
+    background: url("../images/popcorn2.jpg");
+    box-shadow: 4px 4px 10px rgba(56, 23, 1, 0.623);
+
+    /* background: url("../images/popcorn_history_1050x700.jpg"); */
+    
+}
+
+.header-text {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 2px rgb(56, 23, 1);
+}
+
+#userInput {
+	width: 300px;
+	font-size: 13px;
+	padding: 0px 10px;
+}
+
+.tv-input {
+	margin-top: 30px;
+}
+
+.btn {
+	margin: 0;
+	height: 30px;
+	font-size: 14px;
+	padding-top: 6px;
+}
+
+.btn-outline-secondary, .btn {
+    margin: 5px;
+    height: 30px;
+    background-color: #B9090B;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    /* border: .5px white solid; */
+    box-shadow: 2px 2px 3px rgba(56, 23, 1, 0.616);
+    
+
+}
+
+.gifDiv {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+    border:2px white solid;
+    box-shadow: 4px 4px 7px rgb(56, 23, 1);
+    
+    
+}
+
+body {
+    background-color: #B9090B;
+}
+p {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 5px;
+
+}
