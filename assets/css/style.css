@@ -39,7 +39,7 @@
 	padding: 0px 10px;
 }
 
-.tv-input {
+.misc-input {
 	margin-top: 30px;
 }
 
@@ -70,6 +70,7 @@
     float: left;
     border:2px white solid;
     box-shadow: 4px 4px 7px rgb(56, 23, 1);
+    border-radius: 29px;
     
     
 }
@@ -81,5 +82,11 @@ p {
     color: white;
     font-family: 'Montserrat', sans-serif;
     padding-top: 5px;
+
+}
+
+img {
+    /* border-radius: 40px; */
+    border-radius: 27px 27px 0px 0px;
 
 }

@@ -1,4 +1,4 @@
-var topic = ["Rushmore", "Back To The Future", "Fargo", "Jaws", "Titanic", "Star Wars"];
+var topic = ["Rushmore", "Back To The Future", "Fargo", "Jaws", "Titanic", "Star Wars", "Taxi Driver", "Pulp Fiction", "Men In Black"];
 
 function renderButtons() {
 	$("#buttonsArea").empty(); // empties the buttonsArea div so we don't make duplicates
@@ -8,16 +8,16 @@ function renderButtons() {
 		var button = $("<button>");
 		button.html(topic[i]);
 		button.addClass("btn btn-outline-secondary");
-		button.attr("id", "tv-btn");
-		button.attr("tv-title", topic[i]);
+		button.attr("id", "movie-btn");
+		button.attr("movie-title", topic[i]);
 		$("#buttonsArea").append(button);
 	}
 }
 
 function displayGifs() {
-	var thisShow = $(this).attr("tv-title");
-	console.log(thisShow);
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisShow + "&api_key=QDRtZXHbk8NwqSV9D7tTZVYXX7qnYwN2&limit=10";
+	var thisMovie = $(this).attr("movie-title");
+	console.log(thisMovie);
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisMovie + "&api_key=QDRtZXHbk8NwqSV9D7tTZVYXX7qnYwN2&limit=10";
 
 	// ajax call that gets and returns the response object from the query url
 	$.ajax({
@@ -62,8 +62,8 @@ $("#submit-btn").on("click", function(event) {
 	renderButtons();
 });
 
-// listens for a click of any button with an id of tv-btn, then performs the displayGifs function
-$(document).on("click", "#tv-btn", displayGifs);
+// event listener for click of any button with an id of movie-btn, then performs the displayGifs function
+$(document).on("click", "#movie-btn", displayGifs);
 
 // starts and stops the animated gif on click
 $(document).on("click", ".gif", function() {
