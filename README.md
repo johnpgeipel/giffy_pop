@@ -3,6 +3,6 @@ https://johnpgeipel.github.io/giffy_pop
 
 Kick back, have some popcorn & enjoy this show of movie themed gifs!
 
-![giffy POP screenshot](https://github.com/johnpgeipel/giffy_pop/master/assets/images/giffy_pop_screenshot.png)
+![giffy POP screenshot](https://github.com/johnpgeipel/giffy_pop/blob/master/assets/images/giffy_pop_shot.PNG)
 
 
