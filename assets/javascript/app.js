@@ -1,72 +1,63 @@
-var topic = ["Rushmore", "Back To The Future", "Fargo", "Jaws", "Titanic", "Star Wars", "Taxi Driver", "Pulp Fiction", "Men In Black"];
+var titles = ["Rushmore", "Back To The Future", "Fargo", "Jaws", "Titanic", "Star Wars", "Pulp Fiction"];
 
-function renderButtons() {
-	$("#buttonsArea").empty(); // empties the buttonsArea div so we don't make duplicates
+function renderButtons(titles) {
+	$("#buttonsArea").empty();
 
-	// creates a button with attributes for every item in the topic array
-	for (var i = 0; i < topic.length; i++) {
+	titles.forEach((title) => {
 		var button = $("<button>");
-		button.html(topic[i]);
-		button.addClass("btn btn-outline-secondary");
-		button.attr("id", "movie-btn");
-		button.attr("movie-title", topic[i]);
+		button.html(title);
+		button.addClass("btn btn-outline-secondary movie-btn");
+		button.attr("data-title", title);
 		$("#buttonsArea").append(button);
-	}
+	} )
 }
 
-function displayGifs() {
-	var thisMovie = $(this).attr("movie-title");
+function displayGifs(arg) {
+	$("#mainArea").empty();
+	var thisMovie = $(this).attr("data-title") || arg;
 	console.log(thisMovie);
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisMovie + "&api_key=QDRtZXHbk8NwqSV9D7tTZVYXX7qnYwN2&limit=10";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + thisMovie + "&api_key=QDRtZXHbk8NwqSV9D7tTZVYXX7qnYwN2&limit=15";
 
-	// ajax call that gets and returns the response object from the query url
 	$.ajax({
 		url: queryURL,
 		method: "GET"
-	}).done(function(response) {
+	}).done((response) => {
 		console.log(response);
-		var response = response.data;
+		let movies = response.data;
 
-		// creates a div that contains a still image gif and rating info for each response item
-		for (var i = 0; i < response.length; i++) {
-			var gifDiv = $("<div>");
-			gifDiv.addClass("gifDiv");
+		movies.forEach((movie) => {
+			var gifCard = $("<div>").addClass("gif-card");
 
-			var rating = response[i].rating;
-			var p = $("<p>").html("Rating: " + rating);
-			p.addClass("text-center");
+			const rating = movie.rating;
+			const ratingText = $("<p>").html("Rating: " + rating);
+			ratingText.addClass("text-center");
 
-			var gifImage = $("<img>");
-			gifImage.addClass("gif");
-			gifImage.attr("src", response[i].images.fixed_height_still.url);
-			gifImage.attr("data-still", response[i].images.fixed_height_still.url);
-			gifImage.attr("data-animate", response[i].images.fixed_height.url);
+			const gifImage = $("<img>").addClass("gif-image gif");
+			gifImage.attr("src", movie.images.fixed_height_still.url);
+			gifImage.attr("data-still", movie.images.fixed_height_still.url);
+			gifImage.attr("data-animate", movie.images.fixed_height.url);
 			gifImage.attr("data-state", "still");
 
-			// places the image and the rating text in the gifDiv
-			gifDiv.append(p);
-			gifDiv.prepend(gifImage);
+			gifCard.append(ratingText);
+			gifCard.prepend(gifImage);
 
-			// places the gifDiv at the top of the mainArea div
-			$("#mainArea").prepend(gifDiv);
-		}
+			$("#mainArea").prepend(gifCard);
+		})
 	});
 }
 
-// when the submit button is clicked, the input value is pushed to the topic array and rendered into a new button
-$("#submit-btn").on("click", function(event) {
-	event.preventDefault();
-
+$("#submit-btn").on("click", (e) => {
+	e.preventDefault();
 	var newShow = $("#userInput").val().trim();
- topic.push(newShow);
-	renderButtons();
+	$("#userInput").val("");
+	titles.push(newShow);
+	renderButtons(titles);
+	displayGifs(newShow);
 });
 
-// event listener for click of any button with an id of movie-btn, then performs the displayGifs function
-$(document).on("click", "#movie-btn", displayGifs);
+$(document).on("click", ".movie-btn", displayGifs);
 
-// starts and stops the animated gif on click
-$(document).on("click", ".gif", function() {
+$(document).on("click", ".gif-image", function() {
 	var state = $(this).attr("data-state");
 
 	if (state === "still") {
@@ -78,4 +69,6 @@ $(document).on("click", ".gif", function() {
 	}
 });
 
-renderButtons();
+renderButtons(titles);
+
+displayGifs("Up");

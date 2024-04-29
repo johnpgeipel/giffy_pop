@@ -1,30 +1,15 @@
-/* h1 {
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Montrerrat', sans-serif;
-    color: blue;
-    font-size: 90px
-} */
-
-    
 .jumbotron h1 {
     color: white;
-    
-    /* font-family: 'Montrerrat', sans-serif; */
     font-family: 'Montserrat', sans-serif;
     font-size: 110px;
-    /* font-weight: bold; */
     background-color: none;
     letter-spacing: 2px;
     text-shadow: 4px 4px 3px rgba(56, 23, 1, 0.493);
 }
 
 .jumbotron {
-    /* background-color: #0080c0; */
     background: url("../images/popcorn2.jpg");
     box-shadow: 4px 4px 10px rgba(56, 23, 1, 0.623);
-
-    /* background: url("../images/popcorn_history_1050x700.jpg"); */
-    
 }
 
 .header-text {
@@ -32,8 +17,6 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgb(56, 23, 1);
-    
-    
 }
 
 #userInput {
@@ -59,61 +42,37 @@
     background-color: #B9090B;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    /* border: .5px white solid; */
     box-shadow: 0px 3px 3px rgba(56, 23, 1, 0.616);
     border-top: rgba(255, 255, 255, 0.493) 1px solid;
     border-bottom: rgba(255, 255, 255, 0.219) 1px solid;
-    
-
 }
 
-.gifDiv {
+button.btn.btn-outline-secondary.movie-btn {
+    text-transform: capitalize;
+}
+
+.gif-card {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	margin-left: 10px;
     margin-right: 10px;
     float: left;
-    /* border:2px white solid; */
     box-shadow: 0px 4px 7px rgb(56, 23, 1);
     border-radius: 29px;
     border-top: rgba(255, 255, 255, 0.75) 2px solid;
-    /* border-left: rgba(255, 255, 255, 0.493) 2px solid; */
-    /* border-right: rgba(255, 255, 255, 0.493) 2px solid; */
     border-bottom: rgba(255, 255, 255, 0.219) 3px solid;
     background-color: #B9090B;
-    
-    
+    max-width: 45%;
+    overflow: hidden;
 }
 
 body {
-    /* background: repeating-linear-gradient(
-    to right,
-    rgb(94, 1, 3),
-    rgb(94, 1, 3) 10px,
-    #B9090B 10px,
-    #B9090B 50px
-  ); */
     background-color: #B9090B;
 }
+
 p {
     color: white;
     font-family: 'Montserrat', sans-serif;
     padding-top: 5px;
 
 }
-
-img {
-    /* border-radius: 40px; */
-    border-radius: 27px 27px 0px 0px;
-
-}
-
-/* @media screen and (max-width: 640px) {
-    .jumbotron h1 {
-        font-size: 60px;
-    }
-    .jumbotron p {
-        font-size: 15px;
-    }
-
-} */
